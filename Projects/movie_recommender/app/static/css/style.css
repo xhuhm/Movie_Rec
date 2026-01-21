@@ -1,0 +1,120 @@
+/* Custom styles for MovieRec */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.movie-card {
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.movie-card img {
+    height: 450px;
+    object-fit: cover;
+}
+
+.rating-stars {
+    font-size: 2rem;
+    color: #ffc107;
+}
+
+.rating-stars i {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-stars i:hover,
+.rating-stars i.active {
+    color: #ff9800;
+}
+
+.movie-backdrop {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.movie-backdrop::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+}
+
+.movie-info {
+    position: relative;
+    z-index: 1;
+}
+
+.genre-badge {
+    margin: 0.2rem;
+}
+
+/* Dashboard recommendations */
+.recommendation-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 0;
+    margin: -2rem -15px 2rem;
+}
+
+.jumbotron {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Loading spinner */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Star rating input */
+.star-rating {
+    display: inline-flex;
+    gap: 0.25rem;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #ddd;
+    transition: color 0.2s;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: #ffc107;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .movie-card img {
+        height: 350px;
+    }
+    
+    .movie-backdrop {
+        height: 250px;
+    }
+}
